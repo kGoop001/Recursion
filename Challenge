@@ -1,0 +1,51 @@
+package challenge.pkg5_ME;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author ME
+ * Description: Challenge - Recursion
+ * Date: 3/23/22
+ */
+public class Challenge_ME {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        String str;
+        String more;
+        
+        do
+        {
+            System.out.println("Provide input: ");
+            str = keyboard.nextLine();
+            System.out.println(changeXY(str));
+            System.out.println("More? ");
+            more = keyboard.nextLine();
+        } while (more.equalsIgnoreCase("Yes"));        
+        
+    }
+
+    /**
+     * 
+     * @param str
+     * @return 
+     */
+    public static String changeXY (String str) {
+        if (str.length()==0)
+        {
+            return str;
+        }
+        else if (str.charAt(0) == ('x'))
+        {
+            return 'y' + changeXY(str.substring(1));
+        }
+        else 
+        {
+            return str.charAt(0) + changeXY(str.substring(1));
+        }
+    }
+}
